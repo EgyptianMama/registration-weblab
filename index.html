@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Online Registration</h1>
+            <p class="subtitle">Fill in the details and submit to view a formatted summary.</p>
+        </div>
+
+        <form id="registrationForm" class="registration-form">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="program">Program</label>
+                <select id="program" name="program" required>
+                    <option value="">Select a program</option>
+                    <option value="Data Science">Data Science</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Business Administration">Business Administration</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Medicine">Medicine</option>
+                    <option value="Arts & Humanities">Arts & Humanities</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="startTerm">Start Term</label>
+                <div class="date-input-wrapper">
+                    <input type="text" id="startTerm" name="startTerm" placeholder="January, 2025" required readonly>
+                    <span class="calendar-icon" id="calendarIcon">📅</span>
+                </div>
+                <div id="calendar" class="calendar-popup">
+                    <div class="calendar-header">
+                        <button type="button" class="calendar-nav-btn" id="prevMonth">‹</button>
+                        <div class="calendar-month-year">
+                            <select id="calendarMonth" class="calendar-select"></select>
+                            <select id="calendarYear" class="calendar-select"></select>
+                        </div>
+                        <button type="button" class="calendar-nav-btn" id="nextMonth">›</button>
+                    </div>
+                    <div class="calendar-weekdays">
+                        <div class="calendar-weekday">Sun</div>
+                        <div class="calendar-weekday">Mon</div>
+                        <div class="calendar-weekday">Tue</div>
+                        <div class="calendar-weekday">Wed</div>
+                        <div class="calendar-weekday">Thu</div>
+                        <div class="calendar-weekday">Fri</div>
+                        <div class="calendar-weekday">Sat</div>
+                    </div>
+                    <div class="calendar-days" id="calendarDays"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Comments</label>
+                <textarea id="comments" name="comments" rows="4" placeholder="Goals, experience, or questions"></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="clearBtn" class="btn btn-clear">Clear</button>
+                <button type="submit" id="submitBtn" class="btn btn-submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon">✓</div>
+            <h2>Submission Completed</h2>
+            <p>Your registration has been successfully submitted!</p>
+            <button id="closeModal" class="btn btn-modal">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
